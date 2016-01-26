@@ -18,4 +18,4 @@ if __name__ == '__main__':
     words = get_words('filtered_words.txt')
     print check_words('程序员在上班。', words)
     print check_words('我妈妈是农民。', words)
- 
+    print check_words('lovely boy',words) 
