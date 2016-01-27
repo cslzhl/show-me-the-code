@@ -1,0 +1,21 @@
+{% extends "layout.html" %}
+{% block body %}
+<p> 请尽情留言吧</p>
+    <form action="{{ url_for('add_entry') }}" method="post" class="add-entry">
+      <dl>
+        <dt>姓名:
+        <dd><input type="text" size="30" name="username">
+        <dt>内容:
+        <dd><textarea name="text" rows="5" cols="40"></textarea>
+        <dd><input type="submit" value="提交">
+      </dl>
+    </form>
+    <p> 留言历史信息</p>
+  <ul class="entries">
+  {% for entry in entries %}
+    <li><h2>{{ entry.username }} 留言于{{ entry.pub_date|datetimeformat }}</h2>{{ entry.text|safe }}
+  {% else %}
+    <li><em>Unbelievable.  No entries here so far</em>
+  {% endfor %}
+  </ul>
+{% endblock %}
